@@ -1,0 +1,8 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/Controllers/__pycache__
+/pages/Home/__pycache__
+/pages/Login/__pycache__
+/pages/Tarefas/__pycache__
