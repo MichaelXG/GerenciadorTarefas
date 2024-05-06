@@ -1,7 +1,9 @@
 '''
 Class for do PadraoController
 '''
-import random
+import pandas as pd 
+import streamlit as st
+
 # criar lista de Login
 login = []
 
@@ -23,13 +25,7 @@ tarefas = [{"Nome":'Mercado',"Descrição": 'Comprar itens de limpeza',"Priorida
            {"Nome":'Resenha',"Descrição": 'resenha qualquer',"Prioridade": 'Baixa',"Categoria": 'Outros',"Concluída": False},
            ]
 
-import Utils as ut
-import pandas as pd 
-import os
-import streamlit_antd_components as sac
-import streamlit as st
-
-# Função para adicionar uma nova tarefa
+# Adicionar uma nova tarefa
 def adicionar_tarefa(nome, descricao, prioridade, categoria):
     tarefa = {
         "Nome": nome,
@@ -41,12 +37,13 @@ def adicionar_tarefa(nome, descricao, prioridade, categoria):
     tarefas.append(tarefa)
     st.write("Tarefa adicionada com sucesso!")
 
-# Função para listar todas as tarefas ou usando um filtro
+# Listar todas as tarefas ou usando um filtro
 def listar_tarefas(pPrioridade, pCategoria, pConcluida):
     if not tarefas:
         return pd.DataFrame()  # Retorna um DataFrame vazio se não houver tarefas
         
     df = pd.DataFrame(tarefas)
+    # Inserindo ID na Primeira posição da DataFrame 
     df.insert(0, 'ID', range(1, len(df) + 1))
     df['Concluída'] = df['Concluída'].apply(lambda x: 'Sim' if x else 'Não')
     
@@ -86,17 +83,10 @@ categorias_p = ['Todas', 'Trabalho', 'Estudo', 'Lazer', 'Casa', 'Saúde', 'Outro
 
 concluida_p =  ['Todas', 'Sim', 'Não']
 
-# Função para marcar uma tarefa como concluída
-def marcar_como_concluida(numero_tarefa):
+# Marcar uma tarefa como concluída
+def concluir_tarefa(numero_tarefa):
     if 1 <= numero_tarefa <= len(tarefas):
         tarefas[numero_tarefa - 1]['Concluída'] = True
-        st.write("Tarefa marcada como concluída!")
+        return True
     else:
-        st.write("Número de tarefa inválido.")
-
-
-def Key_Unique(value : str):
-    widget_id = 0
-    widget_id = random.randint(100, 999)
-    key_unique = f'{value}_{widget_id}'
-    return key_unique
+        return False

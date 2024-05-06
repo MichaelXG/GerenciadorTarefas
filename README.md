@@ -7,7 +7,7 @@ Basic Insurance Task Manager Project
 - download the main branch
 - create the virtual machine `python -m venv myenv`
 - activate the virtual environment `myenv/scripts/activate`
-- in the virtual environment install the dependencies with `pip install -r requirements.txt`
+- in the virtual environment install the dependencies with `pip install -r requiriments.txt`
 - run command `streamlit run .\main.py`
 
 - user to log in

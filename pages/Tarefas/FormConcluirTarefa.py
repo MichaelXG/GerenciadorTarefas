@@ -8,6 +8,7 @@ import pages.Tarefas.FormListarTarefa as flt
 def Form_Concluir():  
     
     ut.Divisor('Concluir Tarefas', 'clipboard-check', 'rgb(20,80,90)', 'ConcluirTarefa01')
+    
     with st.container(border=True):
         row_0_col1, row_0_col2, row_0_col3= st.columns([1, 1, 2]) 
         
@@ -26,6 +27,7 @@ def Form_Concluir():
             st.write("")
                     
         ut.Divisor('Listar Tarefas', 'clipboard2-data', 'rgb(20,80,90)', 'ConcluirTarefa02')
+        
         with st.container(border=True):
             # Chama a função listar_tarefas com os filtros selecionados
             df_filtrado = listar_tarefas('Todas', 'Todas', 'Não')
@@ -37,6 +39,9 @@ def Form_Concluir():
                 st.write("Não há tarefas correspondentes para ser concluida.")   
        
     if selected_tarefa_concluir == 'Concluir':
-        marcar_como_concluida(numero_tarefa)
+        if concluir_tarefa(numero_tarefa):
+            st.write("Tarefa concluída!")
+        else:
+            st.write("Número de tarefa inválido.")
         
     ut.Divisor('Copyright (c) 2024','','rgb(20,80,90)', 'ConcluirTarefa03')

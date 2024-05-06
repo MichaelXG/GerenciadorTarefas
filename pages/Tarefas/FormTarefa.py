@@ -2,7 +2,6 @@ import streamlit as st
 from Controllers.PadraoController import *
 import streamlit_antd_components as sac
 import Utils as ut
-from pages.Home.Create_Home import Create_Home 
     
 def Form_Tarefa():  
     if "widget" not in st.session_state:
@@ -25,7 +24,7 @@ def Form_Tarefa():
     with st.form(key = 'form_tarefa', clear_on_submit = True):
         row_0_col1, row_0_col2, row_0_col3, row_0_col4 = st.columns([2, 2, 2, 2])  
         row_1_col1, row_1_col2 = st.columns([8, 0.01])  
-        row_2_col1, row_2_col2, row_2_col3, row_2_col4, row_2_col5= st.columns([2, 2, 1, 2, 2]) 
+        row_2_col1, row_2_col2, row_2_col3, row_2_col4, row_2_col5= st.columns([1, 2, 3, 2, 1]) 
         
          # Linha 00
         with row_0_col1:

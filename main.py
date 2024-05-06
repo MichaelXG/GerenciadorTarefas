@@ -18,7 +18,7 @@ def Main():
     
     # Menu
     with st.sidebar:
-        st.image('https://blog.runrun.it/wp-content/uploads/2022/05/117960-blog.jpg.webp', width=None, use_column_width='auto') 
+        st.image('https://blog.runrun.it/wp-content/uploads/2022/05/117960-blog.jpg.webp', width=100, use_column_width='auto') 
         selected_usu = sac.menu([
             sac.MenuItem(f'Bem-vindo, "{st.session_state.Apelido_L}"!', icon=sac.BsIcon(name='person-bounding-box', color='rgb(20,80,90)')),   
             # Usuário Logado
