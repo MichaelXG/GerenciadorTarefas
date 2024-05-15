@@ -63,7 +63,7 @@ if "logged_in" not in st.session_state:
  
 st.set_page_config(
     page_title="Tarefas",
-    page_icon="🧊",
+    page_icon=":shopping_trolley:",
     layout="wide",
     initial_sidebar_state="expanded"
 )   
